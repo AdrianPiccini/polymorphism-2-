@@ -32,15 +32,6 @@ public class Program {
 			System.out.print("New, used or imported (n/u/i)? ");
 			char answer = sc.next().charAt(0);
 			sc.nextLine();
-			while (answer != 'i' && answer != 'u' && answer != 'n') {
-				System.out.println("***** Ivalid option. Please try again!*****");
-				System.out.println();
-				System.out.println("Product #" + i + " data:");
-				System.out.print("Common, used or imported (n/u/i)? ");
-				answer = sc.next().charAt(0);
-				sc.nextLine();
-			}
-				
 			System.out.print("Name: ");
 			String name = sc.nextLine();
 			System.out.print("Price: ");
@@ -62,6 +53,14 @@ public class Program {
 				sc.nextLine();
 				list.add(new Product(name, price));
 				}
+			else {
+				System.out.println("***** Ivalid option. Please try again!*****");
+				System.out.println();
+				System.out.println("Product #" + i + " data:");
+				System.out.print("Common, used or imported (n/u/i)? ");
+				answer = sc.next().charAt(0);
+				sc.nextLine();
+			}
 		}
 		
 		System.out.println();
