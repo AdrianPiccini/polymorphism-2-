@@ -29,13 +29,23 @@ public class Program {
 		
 		for (int i = 1; i <= n; i++) {
 			System.out.println("Product #" + i + " data:");
-			System.out.print("Common, used or imported (c/u/i)? ");
+			System.out.print("New, used or imported (n/u/i)? ");
 			char answer = sc.next().charAt(0);
 			sc.nextLine();
+			while (answer != 'i' && answer != 'u' && answer != 'n') {
+				System.out.println("***** Ivalid option. Please try again!*****");
+				System.out.println();
+				System.out.println("Product #" + i + " data:");
+				System.out.print("Common, used or imported (n/u/i)? ");
+				answer = sc.next().charAt(0);
+				sc.nextLine();
+			}
+				
 			System.out.print("Name: ");
 			String name = sc.nextLine();
 			System.out.print("Price: ");
 			Double price = sc.nextDouble();
+				
 			if ( answer == 'i') {
 				sc.nextLine();
 				System.out.print("Customs fee: ");
@@ -48,7 +58,7 @@ public class Program {
 				Date manufactureDate = sdf.parse(sc.next());
 				list.add(new UsedProduct(name, price, manufactureDate));
 			}
-			else if ( answer == 'c') {
+			else if ( answer == 'n') {
 				sc.nextLine();
 				list.add(new Product(name, price));
 				}
